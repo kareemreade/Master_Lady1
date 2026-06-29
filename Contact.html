@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - Master Lady Solutions</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+    <style>
+        /* ===== ROOT VARIABLES ===== */
+        :root {
+            --primary: #2956ff;
+            --primary-dark: #1a3fc9;
+            --primary-light: #eef2ff;
+            --dark: #0a1628;
+            --gray: #64748b;
+            --light-gray: #94a3b8;
+            --bg: #f8faff;
+            --white: #ffffff;
+            --gold: #b88922;
+            --shadow: 0 10px 40px rgba(41, 86, 255, 0.10);
+            --shadow-hover: 0 20px 60px rgba(41, 86, 255, 0.25);
+            --radius: 60px;
+            --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* ===== RESET ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: var(--dark);
+            overflow-x: hidden;
+            line-height: 1.7;
+            direction: ltr;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 92%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            position: fixed;
+            width: 100%;
+            left: 0;
+            top: 0;
+            z-index: 999;
+            padding: 18px 0;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            transition: var(--transition);
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* ===== LOGO ===== */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            flex-shrink: 0;
+            box-shadow: 0 8px 24px rgba(41, 86, 255, 0.20);
+        }
+
+        .logo-icon .ml-text {
+            font-size: 22px;
+            font-weight: 900;
+            color: white;
+            letter-spacing: -2px;
+            position: relative;
+            z-index: 2;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            width: 70%;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.2);
+            top: 25%;
+            left: 15%;
+            border-radius: 2px;
+        }
+
+        .logo-icon::after {
+            content: '';
+            position: absolute;
+            width: 70%;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.2);
+            bottom: 25%;
+            left: 15%;
+            border-radius: 2px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .logo-text h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--dark);
+            letter-spacing: -0.5px;
+            margin: 0;
+        }
+
+        .logo-text span {
+            font-size: 10px;
+            letter-spacing: 6px;
+            color: var(--gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-top: -2px;
+        }
+
+        /* Navigation */
+        .navbar ul {
+            display: flex;
+            gap: 35px;
+        }
+
+        .navbar a {
+            color: #1e293b;
+            font-weight: 600;
+            font-size: 15px;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .navbar a:hover,
+        .navbar .active {
+            color: var(--primary);
+        }
+
+        .navbar .active::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -10px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--primary);
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .theme-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: none;
+            background: var(--white);
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            font-size: 17px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            color: var(--dark);
+        }
+
+        .theme-btn:hover {
+            transform: rotate(20deg);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .project-btn {
+            background: linear-gradient(135deg, #2956ff, #1a3fc9);
+            color: var(--white);
+            padding: 12px 28px;
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 14px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .project-btn i {
+            font-size: 15px;
+            transition: var(--transition);
+        }
+
+        .project-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(41, 86, 255, 0.35);
+        }
+
+        .project-btn:hover i {
+            transform: translateX(6px);
+        }
+
+        .menu-btn {
+            display: none;
+            background: var(--white);
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            font-size: 22px;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        /* ===== BREADCRUMB ===== */
+        .breadcrumb-section {
+            padding: 120px 0 30px;
+            background: linear-gradient(180deg, #f8faff 0%, #ffffff 100%);
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        .breadcrumb a {
+            color: var(--gray);
+            transition: var(--transition);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--primary);
+        }
+
+        .breadcrumb .current {
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        .breadcrumb i {
+            font-size: 12px;
+            color: #cbd5e1;
+        }
+
+        /* ===== CONTACT HERO ===== */
+        .contact-hero {
+            padding: 0 0 50px;
+            background: linear-gradient(180deg, #ffffff 0%, #f8faff 100%);
+            text-align: center;
+            position: relative;
+        }
+
+        .contact-hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(41, 86, 255, 0.04) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .contact-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.04) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .contact-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-hero .tag {
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            background: rgba(41, 86, 255, 0.06);
+            padding: 6px 24px;
+            border-radius: 30px;
+        }
+
+        .contact-hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--dark);
+            line-height: 1.15;
+            margin-bottom: 16px;
+        }
+
+        .contact-hero h1 span {
+            background: linear-gradient(135deg, #2956ff, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .contact-hero p {
+            font-size: 18px;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* ===== CONTACT MAIN ===== */
+        .contact-main {
+            padding: 20px 0 60px;
+            background: linear-gradient(180deg, #f8faff 0%, #ffffff 50%, #f8faff 100%);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 50px;
+        }
+
+        /* ===== CONTACT INFO ===== */
+        .contact-info {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 35px 30px;
+            border-radius: 24px;
+            border: 1px solid rgba(41, 86, 255, 0.06);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.04);
+        }
+
+        .contact-info h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-info h3 i {
+            color: var(--primary);
+        }
+
+        .contact-info .info-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 20px;
+            padding: 14px 16px;
+            border-radius: 16px;
+            transition: var(--transition);
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .contact-info .info-item:hover {
+            background: rgba(41, 86, 255, 0.04);
+            transform: translateX(6px);
+        }
+
+        .contact-info .info-item .icon {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            border-radius: 14px;
+            background: rgba(41, 86, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .contact-info .info-item:hover .icon {
+            background: var(--primary);
+        }
+
+        .contact-info .info-item .icon i {
+            font-size: 20px;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .contact-info .info-item:hover .icon i {
+            color: white;
+        }
+
+        .contact-info .info-item .text h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 2px;
+        }
+
+        .contact-info .info-item .text p,
+        .contact-info .info-item .text a {
+            font-size: 14px;
+            color: var(--gray);
+            transition: var(--transition);
+        }
+
+        .contact-info .info-item .text a:hover {
+            color: var(--primary);
+        }
+
+        /* ===== CONTACT FORM ===== */
+        .contact-form-wrapper {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 40px 35px;
+            border-radius: 24px;
+            border: 1px solid rgba(41, 86, 255, 0.06);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.04);
+        }
+
+        .contact-form-wrapper h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-form-wrapper h3 i {
+            color: var(--primary);
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 18px;
+        }
+
+        .contact-form label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 6px;
+        }
+
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid rgba(0, 0, 0, 0.06);
+            border-radius: 14px;
+            font-size: 15px;
+            font-family: 'Inter', sans-serif;
+            transition: var(--transition);
+            background: rgba(255, 255, 255, 0.8);
+            color: var(--dark);
+        }
+
+        .contact-form input:focus,
+        .contact-form select:focus,
+        .contact-form textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(41, 86, 255, 0.08);
+            background: #ffffff;
+        }
+
+        .contact-form textarea {
+            height: 130px;
+            resize: vertical;
+        }
+
+        .contact-form .privacy-text {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--gray);
+            margin-bottom: 20px;
+            padding: 12px 16px;
+            background: rgba(41, 86, 255, 0.04);
+            border-radius: 12px;
+        }
+
+        .contact-form .privacy-text i {
+            color: var(--primary);
+            font-size: 20px;
+        }
+
+        .contact-form .submit-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, #2956ff, #7c3aed);
+            color: white;
+            padding: 16px 38px;
+            border-radius: var(--radius);
+            font-weight: 700;
+            font-size: 16px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .contact-form .submit-btn i {
+            transition: var(--transition);
+        }
+
+        .contact-form .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(41, 86, 255, 0.35);
+        }
+
+        .contact-form .submit-btn:hover i {
+            transform: translateX(6px);
+        }
+
+        /* ===== WHY CONTACT ===== */
+        .why-contact {
+            padding: 70px 0;
+            background: linear-gradient(135deg, #f8faff 0%, #eef2ff 50%, #f8faff 100%);
+            position: relative;
+        }
+
+        .why-contact::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(41, 86, 255, 0.04) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .why-contact::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.04) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .why-contact .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .why-contact .section-tag {
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 6px 24px;
+            border-radius: 30px;
+        }
+
+        .why-contact .section-title {
+            font-size: 38px;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 40px;
+        }
+
+        .why-contact .section-title span {
+            background: linear-gradient(135deg, #2956ff, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .why-item {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 30px 24px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(41, 86, 255, 0.06);
+            transition: var(--transition);
+        }
+
+        .why-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(41, 86, 255, 0.10);
+            border-color: rgba(41, 86, 255, 0.15);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .why-item .icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(41, 86, 255, 0.08), rgba(124, 58, 237, 0.08));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 14px;
+            transition: var(--transition);
+        }
+
+        .why-item:hover .icon {
+            background: linear-gradient(135deg, #2956ff, #7c3aed);
+            box-shadow: 0 8px 25px rgba(41, 86, 255, 0.25);
+        }
+
+        .why-item .icon i {
+            font-size: 26px;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .why-item:hover .icon i {
+            color: white;
+        }
+
+        .why-item h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 4px;
+        }
+
+        .why-item p {
+            font-size: 14px;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* ===== MAP SECTION ===== */
+        .map-section {
+            padding: 0 0 60px;
+            background: #ffffff;
+        }
+
+        .map-section iframe {
+            width: 100%;
+            height: 350px;
+            border-radius: 24px;
+            border: none;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.06);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--dark);
+            color: #94a3b8;
+            padding: 50px 0 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            padding-bottom: 35px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .footer-brand .logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 14px;
+            justify-content: flex-start;
+        }
+
+        .footer-brand .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 8px 24px rgba(41, 86, 255, 0.25);
+        }
+
+        .footer-brand .logo-icon .ml-text {
+            font-size: 20px;
+            font-weight: 900;
+            color: white;
+            letter-spacing: -2px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .footer-brand .logo-text h2 {
+            font-size: 22px;
+            font-weight: 800;
+            color: white;
+            letter-spacing: -0.5px;
+            margin: 0;
+        }
+
+        .footer-brand .logo-text span {
+            font-size: 9px;
+            letter-spacing: 5px;
+            color: var(--gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-top: -2px;
+            display: block;
+        }
+
+        .footer-desc {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #94a3b8;
+            max-width: 350px;
+            margin-bottom: 18px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 8px;
+        }
+
+        .footer-social a {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            transition: var(--transition);
+            font-size: 15px;
+        }
+
+        .footer-social a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(41, 86, 255, 0.30);
+        }
+
+        .footer-links h4,
+        .footer-contact h4 {
+            font-size: 17px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 14px;
+            position: relative;
+        }
+
+        .footer-links h4::after,
+        .footer-contact h4::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 28px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 3px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links ul li a {
+            color: #94a3b8;
+            transition: var(--transition);
+            font-size: 14px;
+        }
+
+        .footer-links ul li a:hover {
+            color: white;
+        }
+
+        .footer-contact ul {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .footer-contact ul li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+
+        .footer-contact ul li i {
+            color: var(--primary);
+            font-size: 17px;
+            margin-top: 2px;
+            flex-shrink: 0;
+            width: 20px;
+        }
+
+        .footer-contact ul li a {
+            color: #94a3b8;
+            transition: var(--transition);
+        }
+
+        .footer-contact ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 0 28px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .footer-bottom p {
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        .footer-bottom p strong {
+            color: white;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-bottom-links a {
+            font-size: 14px;
+            color: #64748b;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .footer-bottom-links a::after {
+            content: '|';
+            position: absolute;
+            right: -12px;
+            color: #334155;
+        }
+
+        .footer-bottom-links a:last-child::after {
+            display: none;
+        }
+
+        .footer-bottom-links a:hover {
+            color: white;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1100px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .why-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .footer-brand {
+                grid-column: 1 / -1;
+            }
+            .footer-desc {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .contact-hero h1 {
+                font-size: 38px;
+            }
+            .contact-hero::before,
+            .contact-hero::after {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                padding: 25px 20px;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.10);
+                border-radius: 0 0 20px 20px;
+                gap: 16px;
+                text-align: center;
+            }
+            .navbar ul.open {
+                display: flex;
+            }
+            .menu-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .project-btn span {
+                display: none;
+            }
+            .project-btn {
+                padding: 10px 16px;
+            }
+
+            .breadcrumb-section {
+                padding: 100px 0 20px;
+            }
+
+            .contact-hero h1 {
+                font-size: 30px;
+            }
+            .contact-hero p {
+                font-size: 15px;
+            }
+
+            .contact-form-wrapper {
+                padding: 25px 20px;
+            }
+            .contact-info {
+                padding: 25px 20px;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+            .why-item {
+                padding: 20px 16px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+                text-align: center;
+            }
+            .footer-brand {
+                grid-column: 1 / -1;
+            }
+            .footer-brand .logo {
+                justify-content: center;
+            }
+            .footer-social {
+                justify-content: center;
+            }
+            .footer-desc {
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .footer-links h4::after,
+            .footer-contact h4::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-bottom-links {
+                gap: 14px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .footer-bottom-links a::after {
+                right: -9px;
+            }
+
+            .map-section iframe {
+                height: 250px;
+            }
+
+            .why-contact::before,
+            .why-contact::after {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-hero h1 {
+                font-size: 26px;
+            }
+            .contact-form-wrapper {
+                padding: 20px 16px;
+            }
+            .contact-info {
+                padding: 20px 16px;
+            }
+            .contact-form input,
+            .contact-form select,
+            .contact-form textarea {
+                padding: 12px 14px;
+                font-size: 14px;
+            }
+            .why-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+            .why-item {
+                padding: 16px 12px;
+            }
+            .why-item .icon {
+                width: 48px;
+                height: 48px;
+            }
+            .why-item .icon i {
+                font-size: 22px;
+            }
+            .why-item h4 {
+                font-size: 15px;
+            }
+            .why-item p {
+                font-size: 13px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+            .footer-contact ul li {
+                justify-content: center;
+            }
+            .footer-bottom-links {
+                gap: 10px;
+            }
+            .footer-bottom-links a {
+                font-size: 12px;
+            }
+            .footer-bottom-links a::after {
+                right: -7px;
+            }
+        }
+               .logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .logo img {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+            border-radius: 14px;
+            background: var(--primary-light);
+            padding: 4px;
+        }
+
+        .logo-text h2 {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--dark);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text span {
+            font-size: 12px;
+            letter-spacing: 6px;
+            color: #b88922;
+            font-weight: 600;
+            text-transform: uppercase;
+            display: block;
+            margin-top: -4px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="header" id="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <img src="images/logo.png" alt="Master Lady Logo" />
+                </div>
+                <div class="logo-text">
+                    <h3>Master Lady</h3>
+                </div>
+            </a>
+
+            <nav class="navbar">
+                <ul id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-right">
+                <button class="theme-btn" id="themeToggle">
+                    <i class="bi bi-moon"></i>
+                </button>
+                <a href="quote.html" class="project-btn">
+                    Start Project
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+                <button class="menu-btn" id="menuToggle">
+                    <i class="bi bi-list"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== BREADCRUMB ===== -->
+    <section class="breadcrumb-section">
+        <div class="container">
+          
+        </div>
+    </section>
+
+    <!-- ===== CONTACT HERO ===== -->
+    <section class="contact-hero">
+        <div class="container">
+            <div class="tag">Contact Us</div>
+            <h1>Let's Build Something <span>Amazing</span> Together</h1>
+            <p>Have a project in mind or need more information? We'd love to hear from you. Fill out the form or reach out to us directly.</p>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT MAIN ===== -->
+    <section class="contact-main">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <h3><i class="bi bi-geo-alt"></i> Our Location</h3>
+                    <div class="info-item">
+                        <div class="icon"><i class="bi bi-geo-alt"></i></div>
+                        <div class="text">
+                            <h4>Visit Us</h4>
+                            <p>123 Digital Street, Riyadh<br />Saudi Arabia 11564</p>
+                        </div>
+                    </div>
+
+                    <h3 style="margin-top: 30px;"><i class="bi bi-envelope"></i> Email Us</h3>
+                    <div class="info-item">
+                        <div class="icon"><i class="bi bi-envelope"></i></div>
+                        <div class="text">
+                            <h4>Send Email</h4>
+                            <a href="mailto:info@masterlady.com">info@masterlady.com</a><br />
+                            <a href="mailto:contact@masterlady.com">contact@masterlady.com</a>
+                        </div>
+                    </div>
+
+                    <h3 style="margin-top: 30px;"><i class="bi bi-telephone"></i> Call Us</h3>
+                    <div class="info-item">
+                        <div class="icon"><i class="bi bi-telephone"></i></div>
+                        <div class="text">
+                            <h4>Phone Numbers</h4>
+                            <a href="tel:+966500000000">+966 50 000 0000</a><br />
+                            <a href="tel:+966111234567">+966 11 123 4567</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper">
+                    <h3><i class="bi bi-pencil-square"></i> Send Us a Message</h3>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label>Your Name</label>
+                            <input type="text" placeholder="Enter your name" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Your Email</label>
+                            <input type="email" placeholder="Enter your email" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Subject</label>
+                            <select>
+                                <option>What is this regarding?</option>
+                                <option>General Inquiry</option>
+                                <option>Project Discussion</option>
+                                <option>Partnership</option>
+                                <option>Support</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Your Message</label>
+                            <textarea placeholder="Tell us about your project..."></textarea>
+                        </div>
+                        <div class="privacy-text">
+                            <i class="bi bi-shield-check"></i>
+                            <span>We respect your privacy. Your information is safe with us.</span>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            Send Message
+                            <i class="bi bi-arrow-right"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WHY CONTACT ===== -->
+    <section class="why-contact">
+        <div class="container">
+            <div class="section-tag">Why Contact Us</div>
+            <h2 class="section-title">We're Here to <span>Help</span>!</h2>
+
+            <div class="why-grid">
+                <div class="why-item">
+                    <div class="icon"><i class="bi bi-headset"></i></div>
+                    <h4>24/7 Support</h4>
+                    <p>We're available around the clock to assist you.</p>
+                </div>
+                <div class="why-item">
+                    <div class="icon"><i class="bi bi-clock"></i></div>
+                    <h4>Quick Response</h4>
+                    <p>We respond to all inquiries within 24 hours.</p>
+                </div>
+                <div class="why-item">
+                    <div class="icon"><i class="bi bi-shield-check"></i></div>
+                    <h4>Trusted Company</h4>
+                    <p>We are trusted by hundreds of clients worldwide.</p>
+                </div>
+                <div class="why-item">
+                    <div class="icon"><i class="bi bi-people"></i></div>
+                    <h4>Expert Team</h4>
+                    <p>Our team of experts is ready to bring your ideas to life.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MAP SECTION ===== -->
+    <section class="map-section">
+        <div class="container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.456789!2d46.6753!3d24.7136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDQyJzQ5LjAiTiA0NsKwNDAnMzEuMCJF!5e0!3m2!1sen!2ssa!4v1700000000000" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-icon">
+                            <span class="ml-text">ML</span>
+                        </div>
+                        <div class="logo-text">
+                            <h2 style="color: white;">Master Lady</h2>
+                            <span>SOLUTIONS</span>
+                        </div>
+                    </div>
+                    <p class="footer-desc">
+                        We create modern websites, applications, and digital experiences that help businesses grow and succeed in the digital world.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="#">Web Design</a></li>
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">Mobile Apps</a></li>
+                        <li><a href="#">UI/UX Design</a></li>
+                        <li><a href="#">Digital Marketing</a></li>
+                        <li><a href="#">Branding</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Get in Touch</h4>
+                    <ul>
+                        <li>
+                            <i class="bi bi-geo-alt"></i>
+                            <span>123 Digital Street, Riyadh, Saudi Arabia</span>
+                        </li>
+                        <li>
+                            <i class="bi bi-envelope"></i>
+                            <a href="mailto:info@masterlady.com">info@masterlady.com</a>
+                        </li>
+                        <li>
+                            <i class="bi bi-telephone"></i>
+                            <a href="tel:+966500000000">+966 50 000 0000</a>
+                        </li>
+                        <li>
+                            <i class="bi bi-clock"></i>
+                            <span>Mon - Fri: 9:00 AM - 6:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 <strong>Master Lady Solutions</strong>. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('open');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.toggle('bi-list');
+            icon.classList.toggle('bi-x');
+        });
+
+        document.querySelectorAll('.navbar a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('open');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.add('bi-list');
+                icon.classList.remove('bi-x');
+            });
+        });
+
+        // Header Scroll Effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Theme Toggle
+        const themeBtn = document.getElementById('themeToggle');
+        let isDark = false;
+
+        themeBtn.addEventListener('click', () => {
+            isDark = !isDark;
+            const root = document.documentElement;
+            const icon = themeBtn.querySelector('i');
+
+            if (isDark) {
+                root.style.setProperty('--bg', '#0a1628');
+                root.style.setProperty('--white', '#1a2332');
+                root.style.setProperty('--dark', '#f1f5f9');
+                root.style.setProperty('--gray', '#94a3b8');
+                document.body.style.background = '#0a1628';
+                document.querySelector('.header').style.background = 'rgba(10, 22, 40, 0.95)';
+                icon.className = 'bi bi-sun';
+            } else {
+                root.style.setProperty('--bg', '#f8faff');
+                root.style.setProperty('--white', '#ffffff');
+                root.style.setProperty('--dark', '#0a1628');
+                root.style.setProperty('--gray', '#64748b');
+                document.body.style.background = '#ffffff';
+                document.querySelector('.header').style.background = 'rgba(255, 255, 255, 0.85)';
+                icon.className = 'bi bi-moon';
+            }
+        });
+    </script>
+
+</body>
+</html>

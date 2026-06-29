@@ -1,0 +1,1812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - Master Lady Solutions</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+    <style>
+        /* ============================================
+                   ROOT VARIABLES
+                ============================================ */
+        :root {
+            --primary: #2956ff;
+            --primary-dark: #1a3fc9;
+            --primary-light: #eef2ff;
+            --dark: #0a1628;
+            --gray: #64748b;
+            --light-gray: #94a3b8;
+            --bg: #f8faff;
+            --white: #ffffff;
+            --gold: #b88922;
+            --shadow: 0 10px 40px rgba(41, 86, 255, 0.10);
+            --shadow-hover: 0 20px 60px rgba(41, 86, 255, 0.25);
+            --radius: 60px;
+            --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* ============================================
+                   RESET & BASE
+                ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(circle at 20% 0%, rgba(41, 86, 255, 0.07) 0%, #f8faff 40%, #ffffff 75%);
+            color: var(--dark);
+            overflow-x: hidden;
+            line-height: 1.7;
+            direction: ltr;
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 92%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 15px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ============================================
+                   HEADER
+                ============================================ */
+        .header {
+            position: fixed;
+            width: 100%;
+            left: 0;
+            top: 0;
+            z-index: 999;
+            padding: 16px 0;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* ===== LOGO ===== */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            background: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 20px rgba(41, 86, 255, 0.25);
+            overflow: hidden;
+        }
+
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .logo-icon .ml-text {
+            font-size: 22px;
+            font-weight: 900;
+            color: white;
+            letter-spacing: -2px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .logo-text h2 {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--dark);
+            letter-spacing: -0.5px;
+            margin: 0;
+        }
+
+        .logo-text span {
+            font-size: 9px;
+            letter-spacing: 5px;
+            color: var(--gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            display: block;
+            margin-top: -2px;
+        }
+
+        /* Navigation */
+        .navbar ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        .navbar a {
+            color: #1e293b;
+            font-weight: 600;
+            font-size: 14px;
+            position: relative;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .navbar a:hover,
+        .navbar .active {
+            color: var(--primary);
+        }
+
+        .navbar .active::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -8px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--primary);
+        }
+
+        /* Header Right */
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .theme-btn {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: none;
+            background: var(--white);
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            color: var(--dark);
+        }
+
+        .theme-btn:hover {
+            transform: rotate(20deg);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .project-btn {
+            background: linear-gradient(135deg, #2956ff, #1a3fc9);
+            color: var(--white);
+            padding: 10px 24px;
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            font-size: 13px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .project-btn i {
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .project-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(41, 86, 255, 0.35);
+        }
+
+        .project-btn:hover i {
+            transform: translateX(6px);
+        }
+
+        .project-btn .btn-text {
+            display: inline;
+        }
+
+        .menu-btn {
+            display: none;
+            background: var(--white);
+            border: none;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            font-size: 20px;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            color: var(--dark);
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ============================================
+                   ABOUT SECTION
+                ============================================ */
+        .about-section {
+            padding: 120px 0 70px;
+            position: relative;
+            background: var(--bg);
+        }
+
+        /* About Container */
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        /* Left Content */
+        .about-subtitle {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .about-title {
+            font-size: 42px;
+            font-weight: 800;
+            line-height: 1.15;
+            color: var(--dark);
+            margin-bottom: 18px;
+        }
+
+        .about-title span {
+            background: linear-gradient(135deg, #2956ff, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-desc {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--gray);
+            margin-bottom: 25px;
+        }
+
+        /* Features List */
+        .about-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .about-features li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--dark);
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .about-features li:last-child {
+            border-bottom: none;
+        }
+
+        .about-features li i {
+            font-size: 20px;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        /* Trust Badge */
+        .about-trust {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: var(--white);
+            padding: 14px 22px;
+            border-radius: 14px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(41, 86, 255, 0.06);
+        }
+
+        .trust-icon {
+            width: 46px;
+            height: 46px;
+            min-width: 46px;
+            background: rgba(41, 86, 255, 0.08);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .trust-icon i {
+            font-size: 22px;
+            color: var(--primary);
+        }
+
+        .trust-text h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--dark);
+            margin: 0;
+        }
+
+        .trust-text p {
+            font-size: 13px;
+            color: var(--gray);
+            margin: 0;
+        }
+
+        /* Right Image */
+        .about-image {
+            position: relative;
+            text-align: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(41, 86, 255, 0.10);
+            margin: 0 auto;
+        }
+
+        /* Floating Stats */
+        .about-stats-float {
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            background: var(--white);
+            border-radius: 16px;
+            padding: 16px 20px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(41, 86, 255, 0.06);
+        }
+
+        .float-stat {
+            text-align: center;
+        }
+
+        .float-stat h4 {
+            font-size: 20px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #2956ff, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .float-stat p {
+            font-size: 11px;
+            color: var(--gray);
+            margin: 0;
+            font-weight: 500;
+        }
+
+        /* ============================================
+                   TEAM SECTION
+                ============================================ */
+        .team-section {
+            padding: 70px 0;
+            background: var(--white);
+        }
+
+        .team-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .team-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(41, 86, 255, 0.08);
+            color: var(--primary);
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 13px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(41, 86, 255, 0.10);
+        }
+
+        .team-badge i {
+            font-size: 14px;
+        }
+
+        .team-title {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .team-title span {
+            background: linear-gradient(135deg, #2956ff, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .team-desc {
+            font-size: 16px;
+            color: var(--gray);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Team Grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        /* Team Card */
+        .team-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+            transition: var(--transition);
+            border: 1px solid rgba(41, 86, 255, 0.04);
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(41, 86, 255, 0.08);
+        }
+
+        .team-card-image {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        }
+
+        .team-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .team-card:hover .team-card-image img {
+            transform: scale(1.05);
+        }
+
+        .team-card-content {
+            padding: 20px 24px 24px;
+        }
+
+        .team-card-content h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 2px;
+        }
+
+        .team-card-content .position {
+            font-size: 13px;
+            color: var(--primary);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .team-card-content .bio {
+            font-size: 13px;
+            color: var(--gray);
+            line-height: 1.6;
+            margin-bottom: 14px;
+            min-height: 40px;
+        }
+
+        /* Team Social */
+        .team-social {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .team-social a {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: rgba(41, 86, 255, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+            transition: var(--transition);
+            font-size: 14px;
+        }
+
+        .team-social a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(41, 86, 255, 0.25);
+        }
+
+        /* ============================================
+                   STORY SECTION
+                ============================================ */
+        .story-section {
+            padding: 70px 0;
+            background: var(--bg);
+        }
+
+        .story-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .story-image {
+            position: relative;
+            text-align: center;
+        }
+
+        .story-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(41, 86, 255, 0.08);
+            margin: 0 auto;
+        }
+
+        .story-badge-float {
+            position: absolute;
+            bottom: -18px;
+            right: 20px;
+            background: var(--white);
+            padding: 14px 20px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(41, 86, 255, 0.06);
+        }
+
+        .story-badge-icon {
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            background: rgba(41, 86, 255, 0.08);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .story-badge-icon i {
+            font-size: 20px;
+            color: var(--primary);
+        }
+
+        .story-badge-float h4 {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--dark);
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .story-badge-float p {
+            font-size: 11px;
+            color: var(--gray);
+            margin: 0;
+        }
+
+        .story-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .story-tag i {
+            font-size: 13px;
+        }
+
+        .story-title {
+            font-size: 36px;
+            font-weight: 800;
+            line-height: 1.2;
+            color: var(--dark);
+            margin-bottom: 18px;
+        }
+
+        .story-title span {
+            background: linear-gradient(135deg, #2956ff, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .story-desc {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--gray);
+            margin-bottom: 24px;
+        }
+
+        .story-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 15px;
+            transition: var(--transition);
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+
+        .story-btn i {
+            transition: var(--transition);
+            font-size: 16px;
+        }
+
+        .story-btn:hover {
+            color: var(--primary-dark);
+        }
+
+        .story-btn:hover i {
+            transform: translateX(6px);
+        }
+
+        /* ============================================
+                   FOOTER
+                ============================================ */
+        .footer {
+            background: var(--dark);
+            color: #94a3b8;
+            padding: 50px 0 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 35px;
+            padding-bottom: 35px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .footer-brand .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+            justify-content: flex-start;
+        }
+
+        .footer-brand .logo-icon {
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            background: var(--primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(41, 86, 255, 0.25);
+        }
+
+        .footer-brand .logo-icon .ml-text {
+            font-size: 18px;
+            font-weight: 900;
+            color: white;
+            letter-spacing: -2px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .footer-brand .logo-text h2 {
+            font-size: 20px;
+            font-weight: 800;
+            color: white;
+            letter-spacing: -0.5px;
+            margin: 0;
+        }
+
+        .footer-brand .logo-text span {
+            font-size: 8px;
+            letter-spacing: 4px;
+            color: var(--gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            display: block;
+            margin-top: -2px;
+        }
+
+        .footer-desc {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #94a3b8;
+            max-width: 320px;
+            margin-bottom: 16px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .footer-social a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            transition: var(--transition);
+            font-size: 14px;
+        }
+
+        .footer-social a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(41, 86, 255, 0.30);
+        }
+
+        .footer-links h4,
+        .footer-contact h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 14px;
+            position: relative;
+        }
+
+        .footer-links h4::after,
+        .footer-contact h4::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 24px;
+            height: 2px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links ul li a {
+            color: #94a3b8;
+            transition: var(--transition);
+            font-size: 14px;
+        }
+
+        .footer-links ul li a:hover {
+            color: white;
+        }
+
+        .footer-contact ul {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .footer-contact ul li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 13px;
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+
+        .footer-contact ul li i {
+            color: var(--primary);
+            font-size: 16px;
+            margin-top: 2px;
+            flex-shrink: 0;
+            width: 18px;
+        }
+
+        .footer-contact ul li a {
+            color: #94a3b8;
+            transition: var(--transition);
+        }
+
+        .footer-contact ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0 25px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .footer-bottom p {
+            font-size: 13px;
+            color: #64748b;
+        }
+
+        .footer-bottom p strong {
+            color: white;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom-links a {
+            font-size: 13px;
+            color: #64748b;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .footer-bottom-links a::after {
+            content: '|';
+            position: absolute;
+            right: -11px;
+            color: #334155;
+        }
+
+        .footer-bottom-links a:last-child::after {
+            display: none;
+        }
+
+        .footer-bottom-links a:hover {
+            color: white;
+        }
+
+        /* ============================================
+                   ANIMATIONS
+                ============================================ */
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .about-container,
+        .team-grid,
+        .story-container {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        /* ============================================
+                   RESPONSIVE
+                ============================================ */
+
+        /* Tablet */
+        @media (max-width: 992px) {
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .about-features li {
+                justify-content: center;
+            }
+
+            .about-trust {
+                justify-content: center;
+            }
+
+            .about-image img {
+                max-width: 100%;
+            }
+
+            .about-stats-float {
+                position: relative;
+                bottom: 0;
+                transform: none;
+                left: 0;
+                width: 100%;
+                margin-top: 20px;
+            }
+
+            .story-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .story-tag {
+                justify-content: center;
+            }
+
+            .story-badge-float {
+                right: 50%;
+                transform: translateX(50%);
+                bottom: -15px;
+            }
+
+            .story-image img {
+                max-width: 100%;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+
+            .footer-brand {
+                grid-column: 1 / -1;
+            }
+
+            .footer-desc {
+                max-width: 100%;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            /* Header */
+            .header {
+                padding: 12px 0;
+            }
+
+            .navbar ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                padding: 20px;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.10);
+                border-radius: 0 0 20px 20px;
+                gap: 14px;
+                text-align: center;
+            }
+
+            .navbar ul.open {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: flex;
+            }
+
+            .project-btn .btn-text {
+                display: none;
+            }
+
+            .project-btn {
+                padding: 10px 14px;
+            }
+
+            .logo-icon {
+                width: 40px;
+                height: 40px;
+                min-width: 40px;
+            }
+
+            .logo-text h2 {
+                font-size: 18px;
+            }
+
+            .logo-text span {
+                font-size: 7px;
+                letter-spacing: 3px;
+            }
+
+            /* About */
+            .about-section {
+                padding: 100px 0 50px;
+            }
+
+            .about-title {
+                font-size: 30px;
+            }
+
+            .about-desc {
+                font-size: 15px;
+            }
+
+            .about-features li {
+                font-size: 14px;
+            }
+
+            .about-stats-float {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+                padding: 12px;
+            }
+
+            .float-stat h4 {
+                font-size: 18px;
+            }
+
+            .float-stat p {
+                font-size: 10px;
+            }
+
+            .about-trust {
+                flex-direction: column;
+                text-align: center;
+                padding: 16px 20px;
+            }
+
+            /* Team */
+            .team-section {
+                padding: 50px 0;
+            }
+
+            .team-title {
+                font-size: 28px;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+
+            .team-card-image {
+                height: 160px;
+            }
+
+            .team-card-content {
+                padding: 16px 16px 18px;
+            }
+
+            .team-card-content h4 {
+                font-size: 16px;
+            }
+
+            .team-card-content .bio {
+                font-size: 12px;
+                min-height: 30px;
+            }
+
+            .team-social a {
+                width: 30px;
+                height: 30px;
+                font-size: 12px;
+            }
+
+            /* Story */
+            .story-section {
+                padding: 50px 0;
+            }
+
+            .story-title {
+                font-size: 28px;
+            }
+
+            .story-desc {
+                font-size: 15px;
+            }
+
+            .story-badge-float {
+                padding: 10px 14px;
+                gap: 10px;
+            }
+
+            .story-badge-icon {
+                width: 34px;
+                height: 34px;
+                min-width: 34px;
+            }
+
+            .story-badge-icon i {
+                font-size: 16px;
+            }
+
+            .story-badge-float h4 {
+                font-size: 14px;
+            }
+
+            .story-badge-float p {
+                font-size: 10px;
+            }
+
+            /* Footer */
+            .footer {
+                padding: 40px 0 0;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+                padding-bottom: 25px;
+                text-align: center;
+            }
+
+            .footer-brand {
+                grid-column: 1 / -1;
+            }
+
+            .footer-brand .logo {
+                justify-content: center;
+            }
+
+            .footer-desc {
+                text-align: center;
+                margin: 0 auto 16px;
+            }
+
+            .footer-social {
+                justify-content: center;
+            }
+
+            .footer-links h4::after,
+            .footer-contact h4::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .footer-contact ul li {
+                justify-content: center;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                padding: 18px 0 22px;
+            }
+
+            .footer-bottom-links {
+                justify-content: center;
+                gap: 14px;
+            }
+
+            .footer-bottom-links a::after {
+                right: -9px;
+            }
+        }
+
+        /* Small Mobile */
+        @media (max-width: 480px) {
+            .container {
+                width: 95%;
+                padding: 0 10px;
+            }
+
+            .about-title {
+                font-size: 26px;
+            }
+
+            .about-stats-float {
+                grid-template-columns: 1fr 1fr;
+                gap: 6px;
+                padding: 10px;
+            }
+
+            .float-stat h4 {
+                font-size: 16px;
+            }
+
+            .float-stat p {
+                font-size: 9px;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .team-card-image {
+                height: 200px;
+            }
+
+            .team-title {
+                font-size: 24px;
+            }
+
+            .team-desc {
+                font-size: 14px;
+            }
+
+            .story-title {
+                font-size: 24px;
+            }
+
+            .story-desc {
+                font-size: 14px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .footer-bottom-links {
+                gap: 10px;
+            }
+
+            .footer-bottom-links a {
+                font-size: 12px;
+            }
+
+            .footer-bottom-links a::after {
+                right: -7px;
+            }
+
+            .theme-btn {
+                width: 38px;
+                height: 38px;
+                font-size: 14px;
+            }
+
+            .menu-btn {
+                width: 38px;
+                height: 38px;
+                font-size: 18px;
+            }
+
+            .project-btn {
+                padding: 8px 12px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="header" id="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <span class="ml-text">ML</span>
+                </div>
+                <div class="logo-text">
+                    <h2>Master Lady</h2>
+                    <span>SOLUTIONS</span>
+                </div>
+            </a>
+
+            <nav class="navbar">
+                <ul id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-right">
+                <button class="theme-btn" id="themeToggle">
+                    <i class="bi bi-moon"></i>
+                </button>
+                <a href="quote.html" class="project-btn">
+                    <span class="btn-text">Start Project</span>
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+                <button class="menu-btn" id="menuToggle">
+                    <i class="bi bi-list"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-container">
+                <!-- Left Content -->
+                <div class="about-content">
+                    <div class="about-subtitle">ABOUT US</div>
+                    <h2 class="about-title">
+                        We Are Here to Grow Your <span>Business</span> Exponentially
+                    </h2>
+                    <p class="about-desc">
+                        Master Lady Solutions is a digital agency passionate about turning ideas
+                        into real digital products. We build modern websites, applications, and
+                        digital experiences that help businesses grow and succeed in the digital world.
+                    </p>
+
+                    <!-- Features -->
+                    <ul class="about-features">
+                        <li>
+                            <i class="bi bi-check-circle-fill"></i>
+                            We create fast, secure & scalable solutions
+                        </li>
+                        <li>
+                            <i class="bi bi-check-circle-fill"></i>
+                            Professional team with years of experience
+                        </li>
+                        <li>
+                            <i class="bi bi-check-circle-fill"></i>
+                            Committed to quality and client satisfaction
+                        </li>
+                    </ul>
+
+                    <!-- Trust Badge -->
+                    <div class="about-trust">
+                        <div class="trust-icon">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+                        <div class="trust-text">
+                            <h4>Trusted Company</h4>
+                            <p>We are trusted by thousands of clients worldwide</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Image -->
+                <div class="about-image">
+                    <img src="images/about.png" alt="About Us" />
+
+                    <!-- Floating Stats -->
+                    <div class="about-stats-float">
+                        <div class="float-stat">
+                            <h4>150+</h4>
+                            <p>Happy Clients</p>
+                        </div>
+                        <div class="float-stat">
+                            <h4>250+</h4>
+                            <p>Projects Completed</p>
+                        </div>
+                        <div class="float-stat">
+                            <h4>5+</h4>
+                            <p>Years Experience</p>
+                        </div>
+                        <div class="float-stat">
+                            <h4>24/7</h4>
+                            <p>Support</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TEAM SECTION ===== -->
+    <section class="team-section">
+        <div class="container">
+            <div class="team-header">
+                <div class="team-badge">
+                    <i class="bi bi-people-fill"></i>
+                    Our Team
+                </div>
+                <h2 class="team-title">
+                    Meet Our <span>Professional</span> Team
+                </h2>
+                <p class="team-desc">
+                    We have a dedicated team of experts passionate about delivering excellence
+                </p>
+            </div>
+
+            <div class="team-grid">
+                <!-- Member 1 -->
+                <div class="team-card">
+                    <div class="team-card-image">
+                        <img src="images/team1.png" alt="John Doe" />
+                    </div>
+                    <div class="team-card-content">
+                        <h4>John Doe</h4>
+                        <span class="position">CEO & Founder</span>
+                        <p class="bio">Visionary leader with 10+ years of experience in digital innovation.</p>
+                        <div class="team-social">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-twitter"></i></a>
+                            <a href="#"><i class="bi bi-github"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member 2 -->
+                <div class="team-card">
+                    <div class="team-card-image">
+                        <img src="images/team2.png" alt="Jane Smith" />
+                    </div>
+                    <div class="team-card-content">
+                        <h4>Jane Smith</h4>
+                        <span class="position">Lead Designer</span>
+                        <p class="bio">Creative designer specialized in UI/UX with a passion for beautiful experiences.</p>
+                        <div class="team-social">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-dribbble"></i></a>
+                            <a href="#"><i class="bi bi-behance"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member 3 -->
+                <div class="team-card">
+                    <div class="team-card-image">
+                        <img src="images/team1.png" alt="Mike Johnson" />
+                    </div>
+                    <div class="team-card-content">
+                        <h4>Mike Johnson</h4>
+                        <span class="position">Senior Developer</span>
+                        <p class="bio">Full-stack developer expert in building scalable web applications.</p>
+                        <div class="team-social">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-github"></i></a>
+                            <a href="#"><i class="bi bi-stack-overflow"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member 4 -->
+                <div class="team-card">
+                    <div class="team-card-image">
+                        <img src="images/team2.png" alt="Sarah Williams" />
+                    </div>
+                    <div class="team-card-content">
+                        <h4>Sarah Williams</h4>
+                        <span class="position">Marketing Manager</span>
+                        <p class="bio">Digital marketing strategist helping brands grow their online presence.</p>
+                        <div class="team-social">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-twitter"></i></a>
+                            <a href="#"><i class="bi bi-instagram"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member 5 -->
+                <div class="team-card">
+                    <div class="team-card-image">
+                        <img src="images/team2.png" alt="Alex Rivera" />
+                    </div>
+                    <div class="team-card-content">
+                        <h4>Alex Rivera</h4>
+                        <span class="position">Project Manager</span>
+                        <p class="bio">Experienced project manager ensuring smooth delivery of projects on time.</p>
+                        <div class="team-social">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-twitter"></i></a>
+                            <a href="#"><i class="bi bi-github"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member 6 -->
+                <div class="team-card">
+                    <div class="team-card-image">
+                        <img src="images/team1.png" alt="Emily Chen" />
+                    </div>
+                    <div class="team-card-content">
+                        <h4>Emily Chen</h4>
+                        <span class="position">Content Strategist</span>
+                        <p class="bio">Creative content writer and strategist who crafts compelling stories.</p>
+                        <div class="team-social">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-twitter"></i></a>
+                            <a href="#"><i class="bi bi-medium"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== STORY SECTION ===== -->
+    <section class="story-section">
+        <div class="container">
+            <div class="story-container">
+                <!-- Left Image -->
+                <div class="story-image">
+                    <img src="images/ourstory.png" alt="Our Story" />
+
+                    <!-- Floating Badge -->
+                    <div class="story-badge-float">
+                        <div class="story-badge-icon">
+                            <i class="bi bi-graph-up-arrow"></i>
+                        </div>
+                        <div>
+                            <h4>250+</h4>
+                            <p>Projects Delivered</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Content -->
+                <div class="story-content">
+                    <div class="story-tag">
+                        <i class="bi bi-bookmark-fill"></i>
+                        OUR STORY
+                    </div>
+                    <h2 class="story-title">
+                        From a Small Idea to a Digital Agency Helping <span>Businesses</span> Grow Worldwide
+                    </h2>
+                    <p class="story-desc">
+                        Master Lady Solutions was founded with a simple mission: to create digital solutions
+                        that make a real impact. Over the years, we've grown into a full-service digital agency
+                        trusted by hundreds of clients around the world.
+                    </p>
+                    <a href="#" class="story-btn">
+                        Learn More
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand -->
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-icon">
+                            <span class="ml-text">ML</span>
+                        </div>
+                        <div class="logo-text">
+                            <h2 style="color: white;">Master Lady</h2>
+                            <span>SOLUTIONS</span>
+                        </div>
+                    </div>
+                    <p class="footer-desc">
+                        We create modern websites, applications, and digital experiences that help businesses grow and succeed in the digital world.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div class="footer-links">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="#">Web Design</a></li>
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">Mobile Apps</a></li>
+                        <li><a href="#">UI/UX Design</a></li>
+                        <li><a href="#">Digital Marketing</a></li>
+                        <li><a href="#">Branding</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="footer-contact">
+                    <h4>Get in Touch</h4>
+                    <ul>
+                        <li>
+                            <i class="bi bi-geo-alt"></i>
+                            <span>123 Digital Street, Riyadh, Saudi Arabia</span>
+                        </li>
+                        <li>
+                            <i class="bi bi-envelope"></i>
+                            <a href="mailto:info@masterlady.com">info@masterlady.com</a>
+                        </li>
+                        <li>
+                            <i class="bi bi-telephone"></i>
+                            <a href="tel:+966500000000">+966 50 000 0000</a>
+                        </li>
+                        <li>
+                            <i class="bi bi-clock"></i>
+                            <span>Mon - Fri: 9:00 AM - 6:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom -->
+            <div class="footer-bottom">
+                <p>&copy; 2026 <strong>Master Lady Solutions</strong>. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // === Mobile Menu Toggle ===
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('open');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.toggle('bi-list');
+            icon.classList.toggle('bi-x');
+        });
+
+        document.querySelectorAll('.navbar a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('open');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.add('bi-list');
+                icon.classList.remove('bi-x');
+            });
+        });
+
+        // === Header Scroll Effect ===
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // === Theme Toggle ===
+        const themeBtn = document.getElementById('themeToggle');
+        let isDark = false;
+
+        themeBtn.addEventListener('click', () => {
+            isDark = !isDark;
+            const root = document.documentElement;
+            const icon = themeBtn.querySelector('i');
+
+            if (isDark) {
+                root.style.setProperty('--bg', '#0a1628');
+                root.style.setProperty('--white', '#1a2332');
+                root.style.setProperty('--dark', '#f1f5f9');
+                root.style.setProperty('--gray', '#94a3b8');
+                document.body.style.background = '#0a1628';
+                document.querySelector('.header').style.background = 'rgba(10, 22, 40, 0.95)';
+                icon.className = 'bi bi-sun';
+            } else {
+                root.style.setProperty('--bg', '#f8faff');
+                root.style.setProperty('--white', '#ffffff');
+                root.style.setProperty('--dark', '#0a1628');
+                root.style.setProperty('--gray', '#64748b');
+                document.body.style.background = '';
+                document.querySelector('.header').style.background = 'rgba(255, 255, 255, 0.92)';
+                icon.className = 'bi bi-moon';
+            }
+        });
+
+        // === Intersection Observer for animations ===
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.team-card, .story-container, .about-container').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+
+</body>
+</html>
